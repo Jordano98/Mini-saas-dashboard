@@ -135,7 +135,86 @@ export default function Dashboard() {
             </table>
           </div>
         )}
-
+        {/*Form Modal Window Component*/}
+        {isModalOpen && (
+          <div className="fixed inset-0 bg-gray-900/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-xl shadow-xl border border-gray-200 w-full max-w-md p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                {editingProject ? 'Edit Project Metrics' : 'Create New Project Record'}
+              </h3>
+              <form onSubmit={handleFormSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Project Scope Name</label>
+                  <input 
+                    type="text" 
+                    required 
+                    value={formData.title} 
+                    onChange={(e) => setFormData({ ...formData, title: e.target.value })} 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Status Workflow Flag</label>
+                  <select 
+                    value={formData.status} 
+                    onChange={(e) => setFormData({ ...formData, status: e.target.value as ProjectStatus })} 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+                  >
+                    <option value="active">Active</option>
+                    <option value="on hold">On Hold</option>
+                    <option value="completed">Completed</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Assigned Team Member</label>
+                  <input 
+                    type="text" 
+                    required 
+                    value={formData.assigned_member} 
+                    onChange={(e) => setFormData({ ...formData, assigned_member: e.target.value })} 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Target Deadline</label>
+                  <input 
+                    type="date" 
+                    required 
+                    value={formData.deadline} 
+                    onChange={(e) => setFormData({ ...formData, deadline: e.target.value })} 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Budget Allocation ($)</label>
+                  <input 
+                    type="number" 
+                    step="0.01" 
+                    required 
+                    value={formData.budget} 
+                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })} 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                  />
+                </div>
+                <div className="flex justify-end space-x-3 pt-4 border-t border-gray-100">
+                  <button 
+                    type="button" 
+                    onClick={() => setIsModalOpen(false)} 
+                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button 
+                    type="submit" 
+                    className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-sm"
+                  >
+                    {editingProject ? 'Save Changes' : 'Create Record'}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
       </div>
     </main>
   );
