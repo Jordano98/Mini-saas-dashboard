@@ -29,3 +29,19 @@ Designed and implemented the core reading data visualization views.
 - **Strict Data Typing:** Leveraged full TypeScript models explicitly mapping string definitions to the remote relational fields.
 - **Client-Side Search Indexing:** Implemented decoupled array filtration routines via modern state bindings, driving zero-latency searching and status sorting.
 - **Fluid Layouts:** Utilized utility CSS layouts (Tailwind) providing flexible, readable visibility across multi-screen devices.
+
+> mini-saas-dashboard@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.10 (Turbopack)
+- Local:         http://localhost:3000
+- Environments: .env.local
+✓ Ready in 1378ms
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+
+○ Compiling / ...
+ GET / 200 in 4.4s (next.js: 4.1s, application-code: 277ms)
