@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/mini-saas-dashboard" },
+    { "source": "/(.*)", "destination": "/mini-saas-dashboard/$1" }
+  ]
+}
